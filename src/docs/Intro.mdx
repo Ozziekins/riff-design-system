@@ -1,0 +1,148 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Fender Play Design System/Introduction" />
+
+# 🎸 Fender Play Design System
+
+Welcome to the official design system powering **Fender Play**.
+
+## 💡 Purpose
+To provide a consistent, accessible, and expressive UI for learners and music lovers.
+
+
+## 1. Introducing Your Design System with a Resonating Brand Name
+
+### Brand Name: **Riff**
+
+**Justification:**
+"Riff" is a short, punchy, and memorable name that draws directly from the language of music—particularly guitar playing. A riff is a repeated chord progression or refrain in music that forms the backbone of a song. Similarly, this design system forms the consistent, reusable foundation upon which Fender Play interfaces are built. The name evokes creativity, rhythm, and continuity—key traits in both music education and great UI design. Riff captures the essence of Fender’s brand while being approachable and developer-friendly.
+
+---
+
+## 2. Design System Audience
+
+### Primary Audiences
+- **Designers**: Need reusable, branded, accessible UI elements to maintain consistency and visual fidelity.
+- **Frontend Developers**: Need type-safe, customizable components with documentation and accessibility baked in.
+
+### Secondary Audiences
+- **Content Creators**: Rely on clear content containers and consistent layouts.
+- **Product Managers**: Require system-level consistency and ease of scaling features.
+- **Marketing Teams**: Benefit from themeable, brand-aligned components.
+
+---
+
+## 3. Riff Design Principles
+
+1. **Expressive** – Bold, warm, musical tone in visuals and interaction.
+2. **Authentic** – Rooted in Fender’s brand legacy; feels handcrafted.
+3. **Diverse & Inclusive** – Built for accessibility and representation.
+4. **Clarity** – Prioritizes ease of navigation and content readability.
+5. **Empowering** – Enables users to learn confidently and feel in control.
+
+---
+
+## 4. Design System Foundations
+
+### 🎨 Design Tokens
+
+#### Colors
+```json
+{
+  "primary": "#FF6200",
+  "secondary": "#0061FF",
+  "accent": "#00D1B2",
+  "success": "#2ECC71",
+  "error": "#E74C3C",
+  "warning": "#F39C12",
+  "info": "#3498DB",
+  "neutral": {
+    "100": "#FAFAFA",
+    "200": "#F4F4F4",
+    "300": "#E0E0E0",
+    "400": "#BDBDBD",
+    "500": "#9E9E9E",
+    "600": "#616161",
+    "700": "#424242",
+    "800": "#212121"
+  }
+}
+```
+
+#### Typography
+- **Font Family**: Inter, sans-serif
+- **Sizes**:
+  - Heading 1: 32px
+  - Heading 2: 24px
+  - Body: 16px
+  - Caption: 12px
+- **Font Weights**:
+  - Regular: 400
+  - Medium: 500
+  - Bold: 700
+- **Line Heights**:
+  - Tight: 1.2
+  - Normal: 1.5
+  - Relaxed: 1.75
+
+#### Spacing & Layout
+- **Base unit**: 4px
+- **Scale**: 4, 8, 12, 16, 24, 32, 40, 48, 64, 80px
+- **Grid**: 12-column responsive grid, 8px gutter, mobile-first
+- **Layout principles**: Content-focused, flexible alignment, rhythm through consistent spacing
+
+#### Radii
+- None: 0
+- Small: 4px
+- Medium: 8px
+- Large: 16px
+- Full: 9999px (for pills and avatars)
+
+#### Borders
+- Standard: 1px solid #E0E0E0
+- Active: 2px solid #FF6200
+
+#### Shadows
+- Shadow 1: 0 1px 2px rgba(0,0,0,0.05)
+- Shadow 2: 0 2px 4px rgba(0,0,0,0.08)
+- Shadow 3: 0 4px 8px rgba(0,0,0,0.12)
+
+---
+
+### ✍️ Content Guidelines
+
+#### Voice and Tone
+**Voice**: Friendly, supportive, and motivational. Like a personal coach.
+**Tone**: Confident but never arrogant, clear but never robotic.
+
+**It is:**
+- Encouraging: "You’re doing great—keep going!"
+- Clear: "Next, try this chord."
+- Positive: "You’ve unlocked your next lesson."
+
+**It is not:**
+- Sarcastic: "Really? That’s the best you can do?"
+- Overly casual: "Yo, let’s shred some chords, dude."
+
+#### Copywriting Guidelines
+- Keep it concise and actionable
+- Use active voice
+- Avoid jargon
+- Highlight benefits in CTAs: "Start Practicing" vs. "Submit"
+- Use sentence case (except proper nouns and titles)
+
+#### Use of Illustrations/Imagery
+- **Style**: Clean, modern vector illustrations that align with Fender’s branding
+- **Purpose**: Visual reinforcement of learning moments, onboarding, empty states
+- **Guidelines**:
+  - Avoid cluttered visuals
+  - Use illustrations to explain or motivate, not distract
+  - Use diverse representation across personas
+
+#### Elevation and Hierarchy
+- Use **shadow**, **scale**, and **spacing** to indicate hierarchy
+- Elevate interactive elements (e.g., buttons, modals)
+- Use color contrast and type scale for scannability
+- Group related elements using cards or containers
+
+---

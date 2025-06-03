@@ -1,24 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Text } from './components/primitives/Text';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{ padding: '2rem' }}>
+      <Text as="h1" fontSize="heading" fontWeight="bold" color="primary" marginBottom="24px">
+        Welcome to Riff
+      </Text>
+      <Text as="p" fontSize="body" fontWeight="regular" color="text">
+        This is a paragraph using the Riff Text component.
+      </Text>
+    </div>
     </div>
   );
 }
