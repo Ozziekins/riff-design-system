@@ -16,6 +16,7 @@ const config: StorybookConfig = {
     "name": "@storybook/react-vite",
     "options": {}
   },
+  staticDirs: [],
   viteFinal: async (config, { configType }) => {
     if (configType === 'PRODUCTION') {
       config.base = '/riff-design-system/';
