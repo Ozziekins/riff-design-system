@@ -21,6 +21,10 @@ const config: StorybookConfig = {
   "staticDirs": [
     "../public"
   ],
+  viteFinal: (config) => {
+    config.base = '/riff-design-system/';
+    return config;
+  },
   typescript: {
     reactDocgen: false, // DISABLE react-docgen
     check: true,
