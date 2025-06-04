@@ -34,7 +34,7 @@ const preview: Preview = {
       ],
     },
     a11y: {
-      context: '#root',
+      context: 'body',
       manual: false,
     },
     options: {
