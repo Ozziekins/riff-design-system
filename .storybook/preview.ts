@@ -7,7 +7,7 @@ const decorators: Decorator[] = [
     return React.createElement(
       'div',
       { style: { padding: '2rem', backgroundColor: '#ffffff' } },
-      React.createElement(Story)
+      React.createElement(Story, {})
     );
   },
 ];
@@ -34,7 +34,7 @@ const preview: Preview = {
       ],
     },
     a11y: {
-      context: 'body',
+      context: '#root',
       manual: false,
     },
     options: {
