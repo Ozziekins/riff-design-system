@@ -22,6 +22,18 @@ const config: StorybookConfig = {
   ],
   viteFinal: (config) => {
     config.base = '/riff-design-system/';
+    config.build = {
+      ...config.build,
+      rollupOptions: {
+        ...(config.build?.rollupOptions || {}),
+        output: {
+          ...(config.build?.rollupOptions?.output || {}),
+          assetFileNames: 'assets/[name]-[hash][extname]',
+          chunkFileNames: 'assets/[name]-[hash].js',
+          entryFileNames: 'assets/[name]-[hash].js',
+        },
+      },
+    };
     return config;
   },
   typescript: {
