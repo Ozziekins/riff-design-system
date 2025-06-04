@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { List } from './List';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof List> = {
   title: 'Typography/List',

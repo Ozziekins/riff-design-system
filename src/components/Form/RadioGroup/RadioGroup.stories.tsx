@@ -1,7 +1,7 @@
 // src/components/Form/RadioGroup/RadioGroup.stories.tsx
 
 import { RadioGroup } from './RadioGroup'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import React, { useState } from 'react'
 
 const meta: Meta<typeof RadioGroup> = {

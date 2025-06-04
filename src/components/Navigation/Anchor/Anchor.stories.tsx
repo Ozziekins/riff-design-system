@@ -1,7 +1,7 @@
 // src/components/Navigation/Anchor/Anchor.stories.tsx
 
 import { Anchor } from './Anchor'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta: Meta<typeof Anchor> = {
   title: 'Navigation/Anchor',

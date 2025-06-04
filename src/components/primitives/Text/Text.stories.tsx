@@ -1,7 +1,7 @@
 // src/components/primitives/Text/Text.stories.tsx
 import React from 'react';
 import { Text } from './Text';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof Text> = {
   title: 'Primitives/Text',
