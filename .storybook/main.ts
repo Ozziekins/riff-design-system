@@ -17,10 +17,8 @@ const config: StorybookConfig = {
     "options": {}
   },
   staticDirs: [],
-  viteFinal: async (config, { configType }) => {
-    if (configType === 'PRODUCTION') {
-      config.base = '/riff-design-system/';
-    }
+  viteFinal: async (config) => {
+    config.base = '/riff-design-system/';
     return config;
   },
   typescript: {
