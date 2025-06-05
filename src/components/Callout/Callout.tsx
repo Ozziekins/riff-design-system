@@ -3,20 +3,32 @@
 import React from 'react';
 import { Box } from '../primitives/Box/Box';
 import { Text } from '../primitives/Text/Text';
+import type { CalloutProps, CalloutVariant } from './Callout.types';
+import { colors } from '../../tokens/colors';
+import { spacing } from '../../tokens/spacing';
 
-type CalloutVariant = 'info' | 'success' | 'warning' | 'error';
-
-export interface CalloutProps {
-  variant?: CalloutVariant;
-  title: string;
-  children: React.ReactNode;
-}
-
-const variantStyles: Record<CalloutVariant, { background: string; border: string; text: string }> = {
-  info: { background: '#E8F4FD', border: '#3498DB', text: '#1D3557' },
-  success: { background: '#EAF7F0', border: '#2ECC71', text: '#1B4332' },
-  warning: { background: '#FFF4E5', border: '#F39C12', text: '#7D5102' },
-  error: { background: '#FDEDEC', border: '#E74C3C', text: '#641E16' },
+// Tokenized variant styles
+const variantStyles: Record<CalloutVariant, { background: keyof typeof colors; border: keyof typeof colors; text: keyof typeof colors }> = {
+  info: {
+    background: 'infoBackground',
+    border: 'infoBorder',
+    text: 'infoText',
+  },
+  success: {
+    background: 'successBackground',
+    border: 'successBorder',
+    text: 'successText',
+  },
+  warning: {
+    background: 'warningBackground',
+    border: 'warningBorder',
+    text: 'warningText',
+  },
+  error: {
+    background: 'errorBackground',
+    border: 'errorBorder',
+    text: 'errorText',
+  },
 };
 
 export const Callout: React.FC<CalloutProps> = ({
@@ -28,17 +40,30 @@ export const Callout: React.FC<CalloutProps> = ({
 
   return (
     <Box
+      as="section"
+      role="region"
+      aria-label={`${variant} callout`}
       backgroundColor={styles.background}
-      borderWidth="1px"
+      borderWidth="thin"
       borderColor={styles.border}
-      borderRadius="8px"
-      padding="16px"
-      margin="16px 0"
+      borderRadius="md"
+      padding={5}
+      margin={5}
     >
-      <Text as="div" fontSize="heading" fontWeight="bold" color="text" marginBottom="8px">
+      <Text
+        as="h3"
+        fontSize="heading"
+        fontWeight="bold"
+        color={styles.text}
+        marginBottom={3}
+      >
         {title}
       </Text>
-      <Text as="div" fontSize="body" color="text">
+      <Text
+        as="p"
+        fontSize="body"
+        color={styles.text}
+      >
         {children}
       </Text>
     </Box>

@@ -1,31 +1,70 @@
-// src/components/Typography/Heading/Heading.stories.tsx
-
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Heading } from './Heading';
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import { typography } from '../../../tokens/typography';
+import { colors } from '../../../tokens/colors';
 
 const meta: Meta<typeof Heading> = {
   title: 'Typography/Heading',
   component: Heading,
   tags: ['autodocs'],
+  args: {
+    level: 1,
+    children: 'Try the next riff',
+  },
   argTypes: {
-    as: { control: false }, 
-    level: { control: false },
+    level: {
+      control: { type: 'select' },
+      options: [1, 2, 3, 4, 5, 6],
+    },
+    children: {
+      control: 'text',
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'The `Heading` component provides semantic, accessible headings for your UI. Levels map to HTML tags `h1`–`h6` and apply consistent typography tokens from the Riff design system. Perfect for giving your pages a musical flow. 🎸✨',
+      },
+    },
   },
 };
 
 export default meta;
+
 type Story = StoryObj<typeof Heading>;
 
-export const Example: Story = {
+export const Default: Story = {
+  args: {},
+};
+
+export const AllLevels: Story = {
   render: () => (
-    <>
-      <Heading as="h1" level={1}>Try the next riff - h1</Heading>
-      <Heading as="h2" level={2}>Try the next riff - h2</Heading>
-      <Heading as="h3" level={3}>Try the next riff - h3</Heading>
-      <Heading as="h4" level={4}>Try the next riff - h4</Heading>
-      <Heading as="h5" level={5}>Try the next riff - h5</Heading>
-      <Heading as="h6" level={6}>Try the next riff - h6</Heading>
-    </>
+    <div>
+      {[1, 2, 3, 4, 5, 6].map((level) => (
+        <Heading key={level} level={level as any} aria-label={`Heading level ${level}`}>
+          {getFenderCopy(level)}
+        </Heading>
+      ))}
+    </div>
   ),
+};
+
+const getFenderCopy = (level: number) => {
+  switch (level) {
+    case 1:
+      return 'Learn a new chord';
+    case 2:
+      return 'Learn a new chord';
+    case 3:
+      return 'Learn a new chord';
+    case 4:
+      return 'Learn a new chord';
+    case 5:
+      return 'Learn a new chord';
+    case 6:
+      return 'Learn a new chord';
+    default:
+      return 'Learn a new chord';
+  }
 };

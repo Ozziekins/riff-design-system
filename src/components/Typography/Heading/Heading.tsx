@@ -1,6 +1,5 @@
-// src/components/Typography/Heading/Heading.tsx
-
 import React from 'react';
+import styled from '@emotion/styled';
 import { Text } from '../../primitives/Text/Text';
 import { typography, colors } from '../../../tokens';
 
@@ -10,6 +9,9 @@ export interface HeadingProps {
   as?: React.ElementType;
   level?: HeadingLevel;
   children: React.ReactNode;
+  role?: string;
+  'aria-label'?: string;
+  'aria-describedby'?: string;
 }
 
 const styleMap: Record<
@@ -29,7 +31,7 @@ const styleMap: Record<
     lineHeight: typography.lineHeights.tight,
     fontFamily: typography.fonts.base,
     color: colors.text,
-    marginBottom: '24px',
+    marginBottom: typography.spacing['600'],
   },
   2: {
     fontSize: typography.sizes.heading,
@@ -37,7 +39,7 @@ const styleMap: Record<
     lineHeight: typography.lineHeights.normal,
     fontFamily: typography.fonts.base,
     color: colors.text,
-    marginBottom: '20px',
+    marginBottom: typography.spacing['500'],
   },
   3: {
     fontSize: typography.sizes.subheading,
@@ -45,7 +47,7 @@ const styleMap: Record<
     lineHeight: typography.lineHeights.normal,
     fontFamily: typography.fonts.base,
     color: colors.text,
-    marginBottom: '16px',
+    marginBottom: typography.spacing['400'],
   },
   4: {
     fontSize: typography.sizes.body,
@@ -53,7 +55,7 @@ const styleMap: Record<
     lineHeight: typography.lineHeights.normal,
     fontFamily: typography.fonts.base,
     color: colors.text,
-    marginBottom: '12px',
+    marginBottom: typography.spacing['300'],
   },
   5: {
     fontSize: typography.sizes.small,
@@ -61,7 +63,7 @@ const styleMap: Record<
     lineHeight: typography.lineHeights.relaxed,
     fontFamily: typography.fonts.base,
     color: colors.text,
-    marginBottom: '8px',
+    marginBottom: typography.spacing['200'],
   },
   6: {
     fontSize: typography.sizes.caption,
@@ -69,31 +71,39 @@ const styleMap: Record<
     lineHeight: typography.lineHeights.relaxed,
     fontFamily: typography.fonts.base,
     color: colors.text,
-    marginBottom: '4px',
+    marginBottom: typography.spacing['100'],
   },
 };
+
+// Styled component → this improves readability
+const StyledHeading = styled(Text)<{ level: HeadingLevel }>`
+  font-size: ${({ level }) => styleMap[level].fontSize};
+  font-weight: ${({ level }) => styleMap[level].fontWeight};
+  line-height: ${({ level }) => styleMap[level].lineHeight};
+  font-family: ${({ level }) => styleMap[level].fontFamily};
+  color: ${({ level }) => styleMap[level].color};
+  margin-bottom: ${({ level }) => styleMap[level].marginBottom};
+`;
 
 export const Heading: React.FC<HeadingProps> = ({
   as,
   level = 1,
   children,
+  role,
+  'aria-label': ariaLabel,
+  'aria-describedby': ariaDescribedBy,
 }) => {
   const tag = as ?? (`h${level}` as React.ElementType);
-  const style = styleMap[level];
 
   return (
-    <Text
+    <StyledHeading
       as={tag}
-      style={{
-        fontSize: style.fontSize,
-        fontWeight: style.fontWeight,
-        lineHeight: style.lineHeight,
-        fontFamily: style.fontFamily,
-        color: style.color,
-        marginBottom: style.marginBottom,
-      }}
+      level={level}
+      role={role ?? 'heading'}
+      aria-label={ariaLabel}
+      aria-describedby={ariaDescribedBy}
     >
       {children}
-    </Text>
+    </StyledHeading>
   );
 };

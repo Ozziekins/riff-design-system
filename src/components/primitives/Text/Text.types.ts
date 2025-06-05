@@ -1,16 +1,13 @@
 // src/components/primitives/Text/Text.types.ts
 import React from 'react';
-import { colors } from '../../../tokens';
+import { typography, colors, spacing } from '../../../tokens';
 
 export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   as?: React.ElementType;
-  cx?: any;
-  fontFamily?: 'base' | 'serif' | 'altSans';
-  fontSize?: 'body' | 'heading' | 'caption';
-  fontWeight?: 'regular' | 'medium' | 'bold';
-  color?: keyof typeof colors | string;
-  marginBottom?: string;
-  lineHeight?: 'normal' | 'relaxed' | 'tight';
-  children: React.ReactNode;
+  fontSize?: keyof typeof typography.sizes;
+  fontWeight?: keyof typeof typography.weights;
+  lineHeight?: keyof typeof typography.lineHeights;
+  color?: keyof typeof colors;
+  marginBottom?: keyof typeof spacing;
 }
 

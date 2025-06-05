@@ -1,33 +1,44 @@
 // src/components/primitives/Text/Text.stories.tsx
-import React from 'react';
+
+import type { Meta, StoryObj } from '@storybook/react';
 import { Text } from './Text';
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import {
+  colorOptions,
+  fontSizeOptions,
+  fontWeightOptions,
+  lineHeightOptions,
+  spacingOptions,
+} from '../../../../.storybook/storybook-utils';
 
 const meta: Meta<typeof Text> = {
   title: 'Primitives/Text',
   component: Text,
   tags: ['autodocs'],
+  parameters: {
+    a11y: { element: '#root' },
+  },
   argTypes: {
     as: { control: 'text' },
-    fontSize: { control: 'radio', options: ['body', 'heading', 'caption'] },
-    fontWeight: { control: 'radio', options: ['regular', 'medium', 'bold'] },
-    color: { control: 'radio', options: ['primary', 'secondary', 'text'] },
-    marginBottom: { control: 'text' },
-    lineHeight: { control: 'radio', options: ['normal', 'relaxed', 'tight'] },
+    fontSize: { control: 'select', options: fontSizeOptions },
+    fontWeight: { control: 'select', options: fontWeightOptions },
+    color: { control: 'select', options: colorOptions },
+    marginBottom: { control: 'select', options: spacingOptions },
+    lineHeight: { control: 'select', options: lineHeightOptions },
   },
 };
 
 export default meta;
+
 type Story = StoryObj<typeof Text>;
 
-export const Example: Story = {
+export const Default: Story = {
   args: {
-    as: 'p',
+    children: 'Build your skills playing the songs you love.',
     fontSize: 'body',
     fontWeight: 'regular',
     color: 'text',
-    marginBottom: '16px',
+    marginBottom: 0,
     lineHeight: 'normal',
-    children: 'This is an example paragraph using the Riff Text primitive.',
   },
 };
+

@@ -1,29 +1,33 @@
-// src/components/layout/Stack/Stack.tsx
-
 import React from 'react';
+import styled from '@emotion/styled';
+import type { StackProps } from './Stack.types';
+import { spacing } from '../../../tokens/spacing';
 
-type Direction = 'vertical' | 'horizontal';
-
-export interface StackProps {
-  direction?: Direction;
-  gap?: string;
-  children: React.ReactNode;
-}
+const StyledStack = styled('div')<Pick<StackProps, 'direction' | 'gap'>>`
+  display: flex;
+  flex-direction: ${({ direction }) => (direction === 'vertical' ? 'column' : 'row')};
+  gap: ${({ gap }) => spacing[gap ?? 0]};
+`;
 
 export const Stack: React.FC<StackProps> = ({
   direction = 'vertical',
-  gap = '16px',
+  gap = 4, // spacing[4]
   children,
+  role,
+  'aria-label': ariaLabel,
+  'aria-describedby': ariaDescribedBy,
+  ...rest
 }) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: direction === 'vertical' ? 'column' : 'row',
-        gap,
-      }}
+    <StyledStack
+      direction={direction}
+      gap={gap}
+      role={role}
+      aria-label={ariaLabel}
+      aria-describedby={ariaDescribedBy}
+      {...rest}
     >
       {children}
-    </div>
+    </StyledStack>
   );
 };

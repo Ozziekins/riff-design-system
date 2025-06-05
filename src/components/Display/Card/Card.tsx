@@ -1,36 +1,78 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { Box } from '../../primitives/Box/Box';
+import { Text } from '../../primitives/Text/Text';
+import { colors } from '../../../tokens/colors';
+import { spacing } from '../../../tokens/spacing';
+import { radii } from '../../../tokens/radii';
+import { shadows } from '../../../tokens/shadows';
+
+export type CardElevation = keyof typeof shadows;
+export type CardPadding = keyof typeof spacing;
+export type CardRadius = keyof typeof radii;
 
 export interface CardProps {
-  children: React.ReactNode;
-  elevation?: 'none' | 'sm' | 'md' | 'lg';
-  padding?: string;
-  borderRadius?: string;
+  title?: React.ReactNode;
+  children: React.ReactNode; // body
+  actions?: React.ReactNode;
+  elevation?: CardElevation;
+  padding?: CardPadding;
+  borderRadius?: CardRadius;
+  role?: string;
+  'aria-label'?: string;
+  'aria-describedby'?: string;
+  'aria-hidden'?: boolean;
 }
 
-const elevationMap = {
-  none: 'none',
-  sm: '0px 1px 3px rgba(0,0,0,0.1)',
-  md: '0px 4px 6px rgba(0,0,0,0.1)',
-  lg: '0px 10px 15px rgba(0,0,0,0.1)',
-};
+const StyledCard = styled(Box)<{
+  elevation: CardElevation;
+  padding: CardPadding;
+  borderRadius: CardRadius;
+}>`
+  background-color: ${colors.background};
+  box-shadow: ${({ elevation }) => shadows[elevation]};
+  border-radius: ${({ borderRadius }) => radii[borderRadius]};
+  padding: ${({ padding }) => spacing[padding]};
+  display: flex;
+  flex-direction: column;
+  gap: ${spacing[3]}; 
+`;
+
+const CardTitle = styled(Text)`
+  font-size: ${spacing[5]}; 
+  font-weight: 700;
+`;
+
+const CardActions = styled(Box)`
+  display: flex;
+  gap: ${spacing[2]};
+`;
 
 export const Card: React.FC<CardProps> = ({
+  title,
   children,
+  actions,
   elevation = 'md',
-  padding = '16px',
-  borderRadius = '8px',
+  padding = 4,
+  borderRadius = 'md',
+  role,
+  'aria-label': ariaLabel,
+  'aria-describedby': ariaDescribedBy,
+  'aria-hidden': ariaHidden,
 }) => {
   return (
-    <Box
-      backgroundColor="#FFFFFF"
+    <StyledCard
+      elevation={elevation}
+      padding={padding}
       borderRadius={borderRadius}
-      style={{
-        boxShadow: elevationMap[elevation],
-        padding,
-      }}
+      role={role}
+      aria-label={ariaLabel}
+      aria-describedby={ariaDescribedBy}
+      aria-hidden={ariaHidden}
     >
-      {children}
-    </Box>
+      {title && <CardTitle as="h3">{title}</CardTitle>}
+      <Box as="div">{children}</Box>
+      {actions && <CardActions>{actions}</CardActions>}
+    </StyledCard>
   );
 };

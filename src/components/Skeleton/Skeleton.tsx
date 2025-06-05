@@ -1,60 +1,66 @@
-// src/components/Skeleton/Skeleton.tsx
-
 import React from 'react';
+import styled from '@emotion/styled';
 import { Box } from '../primitives/Box/Box';
+import { colors } from '../../tokens/colors';
 
 export interface SkeletonProps {
   width?: string;
   height?: string;
   variant?: 'rect' | 'circle' | 'text';
+  role?: string;
+  'aria-label'?: string;
+  'aria-describedby'?: string;
 }
+
+const StyledSkeleton = styled(Box)`
+  animation: skeleton-loading 1.2s infinite ease-in-out;
+
+  @keyframes skeleton-loading {
+    0% {
+      background-color: ${colors.skeletonBase ?? '#e0e0e0'};
+    }
+    50% {
+      background-color: ${colors.skeletonHighlight ?? '#f0f0f0'};
+    }
+    100% {
+      background-color: ${colors.skeletonBase ?? '#e0e0e0'};
+    }
+  }
+`;
 
 export const Skeleton: React.FC<SkeletonProps> = ({
   width = '100%',
   height = '16px',
   variant = 'rect',
+  role,
+  'aria-label': ariaLabel,
+  'aria-describedby': ariaDescribedBy,
 }) => {
   let computedWidth = width;
   let computedHeight = height;
-  let computedRadius = '4px';
+  let computedRadiusKey: 'none' | 'sm' | 'md' | 'lg' | 'full' = 'sm';
 
   if (variant === 'circle') {
-    computedWidth = width === '100%' ? '40px' : width; // fallback default
-    // force height = width for circle
+    computedWidth = width === '100%' ? '40px' : width;
     computedHeight = computedWidth;
-    computedRadius = '50%';
+    computedRadiusKey = 'full'; 
   } else if (variant === 'text') {
-    // text skeleton is usually thinner
     computedHeight = '1em';
-    computedRadius = '4px';
+    computedRadiusKey = 'sm';
   }
 
   return (
-    <>
-      <Box
-        backgroundColor="#E0E0E0"
-        borderRadius={computedRadius}
-        style={{
-          width: computedWidth,
-          height: computedHeight,
-          animation: 'skeleton-loading 1.2s infinite ease-in-out',
-        }}
-      />
-      <style>
-        {`
-          @keyframes skeleton-loading {
-            0% {
-              background-color: #e0e0e0;
-            }
-            50% {
-              background-color: #f0f0f0;
-            }
-            100% {
-              background-color: #e0e0e0;
-            }
-          }
-        `}
-      </style>
-    </>
+    <StyledSkeleton
+      backgroundColor="skeletonBase"
+      borderRadius={computedRadiusKey}
+      style={{
+        width: computedWidth,
+        height: computedHeight,
+      }}
+      role={role ?? 'presentation'}
+      aria-hidden="true"
+      aria-label={ariaLabel}
+      aria-describedby={ariaDescribedBy}
+    />
   );
 };

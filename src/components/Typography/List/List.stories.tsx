@@ -1,29 +1,55 @@
-// src/components/Typography/List/List.stories.tsx
-
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { List } from './List';
-import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta: Meta<typeof List> = {
   title: 'Typography/List',
   component: List,
   tags: ['autodocs'],
-  argTypes: {
-    type: { control: 'radio', options: ['unordered', 'ordered'] },
-  },
-};
-
-export default meta;
-type Story = StoryObj<typeof List>;
-
-export const Example: Story = {
   args: {
     type: 'unordered',
     children: (
       <>
-        <li>Learn basic chords</li>
-        <li>Practice strumming</li>
-        <li>Play your first song</li>
+        <li>Warm up your fingers</li>
+        <li>Practice chord transitions</li>
+        <li>Jam to your favorite track</li>
+      </>
+    ),
+  },
+  argTypes: {
+    type: {
+      control: { type: 'select' },
+      options: ['unordered', 'ordered'],
+    },
+    children: {
+      control: false,
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'The `List` component renders ordered (`ol`) or unordered (`ul`) lists with consistent typography and spacing. Ideal for lesson steps, practice tips, and song breakdowns. 🎵✨',
+      },
+    },
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof List>;
+
+export const Default: Story = {
+  args: {},
+};
+
+export const OrderedList: Story = {
+  args: {
+    type: 'ordered',
+    children: (
+      <>
+        <li>Pick a song</li>
+        <li>Learn the chords</li>
+        <li>Play along with the track</li>
       </>
     ),
   },

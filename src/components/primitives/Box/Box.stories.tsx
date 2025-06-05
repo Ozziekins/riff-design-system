@@ -1,36 +1,44 @@
 // src/components/primitives/Box/Box.stories.tsx
 
-import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Box } from './Box';
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import {
+  borderWidthOptions,
+  colorOptions,
+  radiusOptions,
+  spacingOptions,
+} from '../../../../.storybook/storybook-utils';
 
 const meta: Meta<typeof Box> = {
   title: 'Primitives/Box',
   component: Box,
   tags: ['autodocs'],
+  parameters: {
+    a11y: {},
+  },
   argTypes: {
     as: { control: 'text' },
-    backgroundColor: { control: 'color' },
-    borderWidth: { control: 'text' },
-    borderColor: { control: 'color' },
-    borderRadius: { control: 'text' },
-    padding: { control: 'text' },
-    margin: { control: 'text' },
+    backgroundColor: { control: 'select', options: colorOptions },
+    borderWidth: { control: 'select', options: borderWidthOptions },
+    borderColor: { control: 'select', options: colorOptions },
+    borderRadius: { control: 'select', options: radiusOptions },
+    padding: { control: 'select', options: spacingOptions },
+    margin: { control: 'select', options: spacingOptions },
   },
 };
 
 export default meta;
+
 type Story = StoryObj<typeof Box>;
 
-export const Example: Story = {
+export const Default: Story = {
   args: {
-    as: 'div',
-    backgroundColor: '#F4F4F4',
-    borderWidth: '1px',
-    borderColor: '#E0E0E0',
-    borderRadius: '8px',
-    padding: '16px',
-    margin: '16px',
-    children: 'This is a Box primitive!',
+    backgroundColor: 'color-extended-crimson-red-4',
+    borderWidth: 'thin',
+    borderColor: 'border',
+    borderRadius: 'md',
+    padding: 4,
+    margin: 4,
+    children: 'Explore your favourite artists, genres, live lessons & more.',
   },
 };

@@ -1,9 +1,6 @@
 export const typography = {
   fonts: {
-    main: "'Inter', sans-serif", // Body text, default
-    serif: "'Playfair Display', serif", // Headlines, accents
-    altSans: "'Rethink Sans', sans-serif", // Optional, secondary UI
-    base: "'Fira Sans', sans-serif", // Main, code blocks
+    base: "'Fira Sans', sans-serif",
   },
   sizes: {
     display: '32px',
@@ -22,5 +19,18 @@ export const typography = {
     tight: 1.2,
     normal: 1.5,
     relaxed: 1.75,
+  },
+  letterSpacings: {
+    normal: 'normal',
+    wide: '0.05em',
+    wider: '0.1em',
+  },
+  spacing: {
+    600: '24px',
+    500: '20px',
+    400: '16px',
+    300: '12px',
+    200: '8px',
+    100: '4px',
   },
 };
