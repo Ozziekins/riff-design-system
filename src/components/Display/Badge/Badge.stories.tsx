@@ -41,7 +41,7 @@ export const AllTones: Story = {
     <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
       {['primary', 'secondary', 'success', 'error', 'warning', 'info'].map((tone) => (
         <Badge key={tone} tone={tone as any}>
-          {tone.toUpperCase()}
+          {tone}
         </Badge>
       ))}
     </div>

@@ -1,21 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Text } from './components/primitives/Text';
+import { Routes, Route } from 'react-router-dom';
+import CareersLandingPage from './pages/CareersLandingPage';
+import JobSpecPage from './pages/JobSpecPage';
+import LoginPage from './pages/LoginPage';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <div style={{ padding: '2rem' }}>
-      <Text as="h1" fontSize="heading" fontWeight="bold" color="primary" marginBottom="24px">
-        Welcome to Riff
-      </Text>
-      <Text as="p" fontSize="body" fontWeight="regular" color="text">
-        This is a paragraph using the Riff Text component.
-      </Text>
-    </div>
-    </div>
+    <Routes>
+      <Route path="/" element={<CareersLandingPage />} />
+      <Route path="/job-spec" element={<JobSpecPage />} />
+      <Route path="/login" element={<LoginPage />} />
+    </Routes>
   );
-}
+};
 
 export default App;
