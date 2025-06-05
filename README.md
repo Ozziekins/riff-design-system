@@ -1,6 +1,6 @@
 # Riff Design System
 
-Riff is the official design system for [Fender Play](https://www.fender.com/play). It provides a cohesive, accessible, and flexible foundation for building user interfaces across Fender Play's web products.
+Riff is the official design system for [Fender Play](https://www.fender.com/play). It provides a cohesive, accessible, and flexible foundation for building user interfaces across Fender Play’s web products.
 
 Inspired by leading systems like IBM Carbon, Google Material, and Twilio Paste, Riff is tailored to support a modern learning platform with an authentic Fender tone.
 
@@ -18,7 +18,7 @@ Inspired by leading systems like IBM Carbon, Google Material, and Twilio Paste, 
 
 ---
 
-## 📑 Table of Contents
+## 👑 Table of Contents
 
 * [Principles](#principles)
 * [Tech Stack](#tech-stack)
@@ -26,7 +26,7 @@ Inspired by leading systems like IBM Carbon, Google Material, and Twilio Paste, 
 * [Component Status](#component-status)
 * [Tokens](#tokens)
 * [Running Locally](#running-locally)
-* [Deployment](#deployment)
+* [Build & Deployment](#build--deployment)
 * [Usage](#usage)
 * [Contributing](#contributing)
 * [License](#license)
@@ -37,71 +37,79 @@ Inspired by leading systems like IBM Carbon, Google Material, and Twilio Paste, 
 ## Principles
 
 1. **Expressive**
+   Friendly, clear tone of voice, musical personality.
 
-   * Clear tone of voice, friendly and engaging.
 2. **Authentic**
+   Reflects the heritage and spirit of Fender as a music brand.
 
-   * Reflects the heritage and spirit of Fender as a music brand.
-3. **Diverse and Inclusive**
+3. **Diverse & Inclusive**
+   Accessible to all users, including those with visual and audio impairments.
 
-   * Accessible for all users, including those with audio or visual impairments.
 4. **Clarity**
+   Simple, clean, and easy to navigate.
 
-   * Clean, precise, easy to navigate.
 5. **Empowering**
-
-   * Makes users feel confident and in control of their learning.
+   Makes users feel confident and in control of their learning experience.
 
 ---
 
 ## Tech Stack
 
 * **React + TypeScript**
-* **Storybook** for documentation and component catalog
+* **Storybook** for documentation
 * **Emotion** for styling (CSS-in-JS)
-* **Tokens** defined in `src/tokens` (colors, typography, spacing, radii)
+* **Design Tokens** for consistent theming
+* **Vite** for build & development
+* **GitHub Actions** for CI/CD
 
 ---
 
 ## Structure
 
-```
+```text
 src/
   components/
-    primitives/
-      Box/
-      Text/
-    Typography/
-      Heading/
-      Paragraph/
-      List/
-    Layout/
-      Stack/
-      Flex/
-    Feedback/
-      Skeleton/
-      Callout/
+    Accordion/
+    Callout/
+    Display/
+      Alert/
+      Avatar/
+      Badge/
+      Card/
+    Form/
+      Button/
+      CheckboxGroup/
+      HelpText/
+      RadioGroup/
+      Select/
+      TextArea/
+      TextInput/
     Navigation/
       Anchor/
       Pagination/
       Tabs/
-    Form/
-      Button/
-      TextInput/
-      TextArea/
-      HelpText/
-      Select/
-      RadioGroup/
-    Display/
-      Card/
-      Badge/
-      Alert/
-      Avatar/
+    Skeleton/
+      Skeleton/
+    Typography/
+      Heading/
+      List/
+      Paragraph/
+    layout/
+      Flex/
+      Stack/
+    primitives/
+      Box/
+      Text/
+  pages/                # PoC pages (CareersLandingPage, JobSpecPage, LoginPage)
   tokens/
     colors.ts
-    typography.ts
     spacing.ts
+    typography.ts
     radii.ts
+index.ts                # Design system exports
+main.tsx                # App entry for PoC pages
+App.tsx                 # App router for PoC pages
+index.html              # App entrypoint
 ```
 
 ---
@@ -110,59 +118,67 @@ src/
 
 ### Primitives
 
-* [x] Box
-* [x] Text
+✅ Box
+✅ Text
 
 ### Typography
 
-* [x] Heading
-* [x] Paragraph
-* [x] List
+✅ Heading
+✅ Paragraph
+✅ List
 
 ### Layout
 
-* [x] Stack
-* [x] Flex
-
-### Feedback
-
-* [x] Skeleton
-* [x] Callout
-
-### Navigation
-
-* [x] Anchor
-* [x] Pagination
-* [x] Tabs
-
-### Form
-
-* [x] Button
-* [x] TextInput
-* [x] TextArea
-* [x] HelpText
-* [x] Select
-* [x] RadioGroup
+✅ Stack
+✅ Flex
 
 ### Display
 
-* [x] Card
-* [x] Badge
-* [x] Alert
-* [ ] Avatar (Planned)
+✅ Alert
+✅ Badge
+✅ Card
+✅ Avatar
+
+### Navigation
+
+✅ Anchor
+✅ Pagination
+✅ Tabs
+
+### Skeleton
+
+✅ Skeleton
+
+### Feedback
+
+✅ Callout
+
+### Form
+
+✅ Button
+✅ TextInput
+✅ TextArea
+✅ HelpText
+✅ Select
+✅ RadioGroup
+✅ CheckboxGroup
+
+### Interactive
+
+✅ Accordion
 
 ---
 
 ## Tokens
 
-Design tokens are centrally defined in `src/tokens/`:
+Design tokens are centrally defined in:
 
-* **colors.ts**
-* **typography.ts**
-* **spacing.ts**
-* **radii.ts**
+* `src/tokens/colors.ts`
+* `src/tokens/typography.ts`
+* `src/tokens/spacing.ts`
+* `src/tokens/radii.ts`
 
-Tokens are used consistently across all components to ensure alignment between Figma designs and implementation.
+Tokens are used consistently across all components to ensure visual consistency between Figma and production.
 
 ---
 
@@ -174,42 +190,72 @@ npm install
 
 # Run Storybook
 npm run storybook
-```
 
-Storybook will be available at `http://localhost:6006`
+# Run the PoC app (Pages with router)
+npm run dev
+```
 
 ---
 
-## Deployment
+## Build & Deployment
 
-Planned deployment:
+### Dual Build System
 
-* GitHub repo (public)
-* Storybook deployed (Chromatic / Vercel / Netlify)
+| Command                   | Purpose                                                   |
+| ------------------------- | --------------------------------------------------------- |
+| `npm run build:lib`       | Build component library for packaging (npm, internal use) |
+| `npm run build`           | Build the PoC app (for GitHub Pages or Netlify deploy)    |
+| `npm run build-storybook` | Build Storybook static site (for GitHub Pages deploy)     |
+
+---
+
+### GitHub Actions
+
+* CI is configured in `.github/workflows/ci.yml`
+* On every push to `main`:
+
+  * Library is built and tested
+  * App is built and tested
+  * Storybook is built
+  * Storybook is deployed to GitHub Pages
 
 ---
 
 ## Usage
 
-The Riff Design System will be consumed by Fender Play's apps as a component library.
+The Riff Design System can be consumed in Fender Play apps as a React component library.
+
+Library exports are defined in `src/index.ts`:
+
+```tsx
+import { Button, Heading, Stack } from '@fender/riff';
+```
 
 Planned packaging:
 
-* Export components via `index.ts`
-* Option to publish to NPM as `@fender/riff` package
+* Internal NPM package: `@fender/riff`
+* Available for direct import in React apps
 
 ---
 
 ## Contributing
 
-Pull requests and improvements are welcome! Please fork the repo and create a pull request with your suggested changes.
+Contributions are welcome! Please fork the repo and submit a PR.
 
-We follow a standard workflow:
+Before submitting:
 
 ```bash
+# Lint
 npm run lint
+
+# Format
 npm run format
+
+# Test (if tests added)
 npm run test
+
+# Storybook check
+npm run storybook
 ```
 
 ---
@@ -222,6 +268,6 @@ MIT License © Fender Play Design System Team
 
 ## Credits
 
-Built by the Fender Play Design System team.
+Built with ❤️ by the Fender Play Design System team.
 
-**Let's riff!** 🎸
+**Let’s riff!** 🎸✨
