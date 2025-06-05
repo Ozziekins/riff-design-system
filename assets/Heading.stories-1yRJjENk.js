@@ -1,0 +1,16 @@
+import{j as r}from"./jsx-runtime-D_zvdyIk.js";import{n as x}from"./emotion-styled.browser.esm-C2e_5qSG.js";import{T as w}from"./Text-BZ8CUq_d.js";import{c as o}from"./colors-1P3P2RfF.js";import{t as e}from"./typography-DRdEHkvb.js";import"./iframe-CQ6FI9Rb.js";import"./spacing-CXxPM5Gd.js";const n={1:{fontSize:e.sizes.display,fontWeight:e.weights.bold,lineHeight:e.lineHeights.tight,fontFamily:e.fonts.base,color:o.text,marginBottom:e.spacing[600]},2:{fontSize:e.sizes.heading,fontWeight:e.weights.bold,lineHeight:e.lineHeights.normal,fontFamily:e.fonts.base,color:o.text,marginBottom:e.spacing[500]},3:{fontSize:e.sizes.subheading,fontWeight:e.weights.bold,lineHeight:e.lineHeights.normal,fontFamily:e.fonts.base,color:o.text,marginBottom:e.spacing[400]},4:{fontSize:e.sizes.body,fontWeight:e.weights.bold,lineHeight:e.lineHeights.normal,fontFamily:e.fonts.base,color:o.text,marginBottom:e.spacing[300]},5:{fontSize:e.sizes.small,fontWeight:e.weights.bold,lineHeight:e.lineHeights.relaxed,fontFamily:e.fonts.base,color:o.text,marginBottom:e.spacing[200]},6:{fontSize:e.sizes.caption,fontWeight:e.weights.bold,lineHeight:e.lineHeights.relaxed,fontFamily:e.fonts.base,color:o.text,marginBottom:e.spacing[100]}},v=x(w)`
+  font-size: ${({level:t})=>n[t].fontSize};
+  font-weight: ${({level:t})=>n[t].fontWeight};
+  line-height: ${({level:t})=>n[t].lineHeight};
+  font-family: ${({level:t})=>n[t].fontFamily};
+  color: ${({level:t})=>n[t].color};
+  margin-bottom: ${({level:t})=>n[t].marginBottom};
+`,p=({as:t,level:s=1,children:f,role:y,"aria-label":b,"aria-describedby":u})=>{const H=t??`h${s}`;return r.jsx(v,{as:H,level:s,role:y??"heading","aria-label":b,"aria-describedby":u,children:f})},j={title:"Typography/Heading",component:p,tags:["autodocs"],args:{level:1,children:"Try the next riff"},argTypes:{level:{control:{type:"select"},options:[1,2,3,4,5,6]},children:{control:"text"}},parameters:{docs:{description:{component:"The `Heading` component provides semantic, accessible headings for your UI. Levels map to HTML tags `h1`–`h6` and apply consistent typography tokens from the Riff design system. Perfect for giving your pages a musical flow. 🎸✨"}}}},a={args:{}},i={render:()=>r.jsx("div",{children:[1,2,3,4,5,6].map(t=>r.jsx(p,{level:t,"aria-label":`Heading level ${t}`,children:z(t)},t))})},z=t=>{switch(t){case 1:return"Learn a new chord";case 2:return"Learn a new chord";case 3:return"Learn a new chord";case 4:return"Learn a new chord";case 5:return"Learn a new chord";case 6:return"Learn a new chord";default:return"Learn a new chord"}};var l,c,g;a.parameters={...a.parameters,docs:{...(l=a.parameters)==null?void 0:l.docs,source:{originalSource:`{
+  args: {}
+}`,...(g=(c=a.parameters)==null?void 0:c.docs)==null?void 0:g.source}}};var d,m,h;i.parameters={...i.parameters,docs:{...(d=i.parameters)==null?void 0:d.docs,source:{originalSource:`{
+  render: () => <div>
+      {[1, 2, 3, 4, 5, 6].map(level => <Heading key={level} level={level as any} aria-label={\`Heading level \${level}\`}>
+          {getFenderCopy(level)}
+        </Heading>)}
+    </div>
+}`,...(h=(m=i.parameters)==null?void 0:m.docs)==null?void 0:h.source}}};const k=["Default","AllLevels"];export{i as AllLevels,a as Default,k as __namedExportsOrder,j as default};
