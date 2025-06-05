@@ -21,7 +21,7 @@ const StyledBadge = styled(Box)<{ tone: BadgeTone }>`
   display: inline-block;
   background-color: ${({ tone }) => colors.badge[tone].background};
   border-radius: ${radii.md};
-  padding: ${spacing[1]} ${spacing[3]};
+  padding: ${spacing[0]} ${spacing[1]};
 `;
 
 export const Badge: React.FC<BadgeProps> = ({
@@ -41,7 +41,7 @@ export const Badge: React.FC<BadgeProps> = ({
       aria-describedby={ariaDescribedBy}
       aria-hidden={ariaHidden}
     >
-      <Text as="span" fontSize="caption" fontWeight="medium" style={{ color: colors.badge[tone].text }}>
+      <Text as="span" fontSize="small" fontWeight="regular" style={{ color: colors.badge[tone].text }}>
         {children}
       </Text>
     </StyledBadge>

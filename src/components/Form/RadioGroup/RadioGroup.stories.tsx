@@ -10,7 +10,7 @@ const meta: Meta<typeof RadioGroup> = {
     options: [
       { value: 'guitar', label: 'Guitar' },
       { value: 'bass', label: 'Bass' },
-      { value: 'ukulele', label: 'Ukulele' },
+      { value: 'ukulele', label: 'Ukulele', disabled: true },
     ],
     selectedValue: 'guitar',
     gap: 2,

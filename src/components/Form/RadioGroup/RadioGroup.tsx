@@ -17,6 +17,9 @@ export interface RadioGroupProps {
   onChange: (value: string) => void;
   gap?: keyof typeof spacing;
   tone?: 'default' | 'error';
+  ariaLabel?: string;
+  ariaLabelledBy?: string;
+  ariaDescribedBy?: string;
 }
 
 const StyledRadioGroup = styled(Box)<{ gap: keyof typeof spacing }>`
@@ -25,11 +28,12 @@ const StyledRadioGroup = styled(Box)<{ gap: keyof typeof spacing }>`
   gap: ${({ gap }) => spacing[gap]};
 `;
 
-const StyledLabel = styled('label')`
+const StyledLabel = styled('label')<{ disabled?: boolean }>`
   display: flex;
   align-items: center;
   gap: ${spacing[2]};
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
 `;
 
 export const RadioGroup: React.FC<RadioGroupProps> = ({
@@ -39,13 +43,22 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
   onChange,
   gap = 2, // spacing[2] → '8px'
   tone = 'default',
+  ariaLabel,
+  ariaLabelledBy,
+  ariaDescribedBy,
 }) => {
   return (
-    <StyledRadioGroup role="radiogroup" gap={gap}>
+    <StyledRadioGroup
+      role="radiogroup"
+      gap={gap}
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledBy}
+      aria-describedby={ariaDescribedBy}
+    >
       {options.map((option) => {
         const id = `${name}-${option.value}`;
         return (
-          <StyledLabel key={option.value} htmlFor={id}>
+          <StyledLabel key={option.value} htmlFor={id} disabled={option.disabled}>
             <input
               type="radio"
               id={id}
@@ -56,7 +69,16 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
               aria-checked={selectedValue === option.value}
               disabled={option.disabled}
             />
-            <Text as="span" color={tone === 'error' ? 'error' : 'text'}>
+            <Text
+              as="span"
+              color={
+                option.disabled
+                  ? 'color-neutral-3'
+                  : tone === 'error'
+                  ? 'error'
+                  : 'text'
+              }
+            >
               {option.label}
             </Text>
           </StyledLabel>

@@ -87,6 +87,7 @@ export const colors = {
     secondary: {
       border: '#D7263D',
       hoverBorder: '#E96278',
+      hoverBg: '#FCE3E8',
       activeBorder: '#F191A1',
       disabledBorder: '#B0B0B0',
       text: '#D7263D',
@@ -95,6 +96,7 @@ export const colors = {
     secondaryBlack: {
       border: '#212529',
       hoverBorder: '#333333',
+      hoverBg: '#E6E6E6',
       activeBorder: '#444444',
       disabledBorder: '#B0B0B0',
       text: '#212529',

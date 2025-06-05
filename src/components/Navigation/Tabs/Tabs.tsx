@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { Box } from '../../primitives/Box/Box';
-import { Button } from '../../Form/Button/Button';
+import { Text } from '../../primitives/Text/Text';
 import { spacing } from '../../../tokens/spacing';
+import { colors } from '../../../tokens/colors';
+import { typography } from '../../../tokens/typography';
 
 export interface Tab {
   id: string;
@@ -23,6 +25,28 @@ const TabList = styled(Box)<{ gap: keyof typeof spacing; marginBottom: keyof typ
   margin-bottom: ${({ marginBottom }) => spacing[marginBottom]};
 `;
 
+const TabButton = styled('button')<{ selected: boolean }>`
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: ${typography.fonts.base};
+  font-size: ${typography.sizes.body};
+  font-weight: ${typography.weights.medium};
+  color: ${({ selected }) => (selected ? colors['color-primary-crimson-red'] : colors['color-neutral-4'])};
+  border-bottom: ${({ selected }) => (selected ? `4px solid ${colors['color-primary-crimson-red']}` : '4px solid transparent')};
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+
+  &:hover:not(:disabled) {
+    color: ${colors['color-primary-crimson-red']};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+`;
+
 export const Tabs: React.FC<TabsProps> = ({
   tabs,
   defaultActiveId,
@@ -41,17 +65,18 @@ export const Tabs: React.FC<TabsProps> = ({
         marginBottom={marginBottom}
       >
         {tabs.map((tab) => (
-          <Button
+          <TabButton
             key={tab.id}
+            type="button"
             onClick={() => setActiveId(tab.id)}
-            variant={tab.id === activeId ? 'primary' : 'secondary'}
+            selected={tab.id === activeId}
             role="tab"
             aria-selected={tab.id === activeId}
             aria-controls={`tabpanel-${tab.id}`}
             id={`tab-${tab.id}`}
           >
             {tab.label}
-          </Button>
+          </TabButton>
         ))}
       </TabList>
 

@@ -103,6 +103,7 @@ const StyledButton = styled('button')<{
 
     &:hover:not(:disabled) {
       border-color: ${colors.button.secondary.hoverBorder};
+      background-color: ${colors.button.secondary.hoverBg};
     }
 
     &:active:not(:disabled) {
@@ -125,6 +126,7 @@ const StyledButton = styled('button')<{
 
     &:hover:not(:disabled) {
       border-color: ${colors.button.secondaryBlack.hoverBorder};
+      background-color: ${colors.button.secondaryBlack.hoverBg};
     }
 
     &:active:not(:disabled) {

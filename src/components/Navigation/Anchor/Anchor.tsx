@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { colors } from '../../../tokens/colors';
-import { ArrowRight, ExternalLink } from 'lucide-react'; // Example icon lib
+import { ArrowRight, ExternalLink } from 'lucide-react'; 
 
 export interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;

@@ -29,13 +29,13 @@ export const Default: Story = {
   args: {},
   render: (args) => (
     <Stack {...args} role="group" aria-label="Example stack group">
-      <Box backgroundColor="primary" padding={4} borderRadius="md">
+      <Box backgroundColor="color-primary-crimson-red" padding={4} borderRadius="md">
         <span style={{ color: colors.primaryText }}>Item 1</span>
       </Box>
-      <Box backgroundColor="secondary" padding={4} borderRadius="md">
+      <Box backgroundColor="black" padding={4} borderRadius="md">
         <span style={{ color: colors.secondaryText }}>Item 2</span>
       </Box>
-      <Box backgroundColor="accent" padding={4} borderRadius="md">
+      <Box backgroundColor="color-neutral-1" padding={4} borderRadius="md">
         <span style={{ color: colors.text }}>Item 3</span>
       </Box>
     </Stack>

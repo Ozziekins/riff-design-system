@@ -33,13 +33,13 @@ export const Default: Story = {
   args: {},
   render: (args) => (
     <Flex {...args} role="group" aria-label="Example flex group">
-      <Box backgroundColor="primary" padding={4} borderRadius="md">
+      <Box backgroundColor="color-primary-crimson-red" padding={4} borderRadius="md">
         <span style={{ color: colors.primaryText }}>Box 1</span>
       </Box>
-      <Box backgroundColor="secondary" padding={4} borderRadius="md">
+      <Box backgroundColor="black" padding={4} borderRadius="md">
         <span style={{ color: colors.secondaryText }}>Box 2</span>
       </Box>
-      <Box backgroundColor="accent" padding={4} borderRadius="md">
+      <Box backgroundColor="color-neutral-1" padding={4} borderRadius="md">
         <span style={{ color: colors.text }}>Box 3</span>
       </Box>
     </Flex>
