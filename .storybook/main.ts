@@ -5,16 +5,23 @@ const config: StorybookConfig = {
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
+  
+  // Re-enable essential addons, keep suspects disabled
   addons: [
-    // "@storybook/addon-onboarding",
-    // "@chromatic-com/storybook",
-    "@storybook/addon-docs",
-    "@storybook/addon-a11y",
-    // "@storybook/addon-vitest"
+    // "@storybook/addon-onboarding", // <- Keep disabled
+    // "@chromatic-com/storybook",    // <- Keep disabled
+    "@storybook/addon-docs",         // <- Re-enable
+    "@storybook/addon-a11y",         // <- Re-enable
+    // "@storybook/addon-vitest"        // <- Keep disabled
   ],
+
   framework: {
     name: "@storybook/react-vite",
     options: {}
+  },
+  viteFinal: async (config) => {
+    config.base = '/riff-design-system/';
+    return config;
   },
   typescript: {
     reactDocgen: false,
