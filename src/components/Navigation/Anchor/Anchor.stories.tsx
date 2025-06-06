@@ -19,14 +19,14 @@ const meta: Meta<typeof Anchor> = {
     },
     variant: {
       control: { type: 'select' },
-      options: ['internal', 'external'],
+      options: ['internal', 'internalRed', 'external', 'externalRed'],
     },
   },
   parameters: {
     docs: {
       description: {
         component:
-          'The `Anchor` component provides a styled, accessible link for navigation. Use `variant="external"` to open in a new tab with an external link icon — ideal for calls to action or external resources. 🎵✨',
+          'The `Anchor` component provides a styled, accessible link for navigation. Use `external`/`externalRed` to open in a new tab with an external link icon.',
       },
     },
   },
@@ -45,5 +45,21 @@ export const ExternalLink: Story = {
     href: 'https://www.fender.com/play',
     variant: 'external',
     children: 'Visit Fender Play',
+  },
+};
+
+export const InternalRed: Story = {
+  args: {
+    href: '#',
+    variant: 'internalRed',
+    children: 'Internal Red Link',
+  },
+};
+
+export const ExternalRed: Story = {
+  args: {
+    href: 'https://www.fender.com/play',
+    variant: 'externalRed',
+    children: 'External Red Link',
   },
 };

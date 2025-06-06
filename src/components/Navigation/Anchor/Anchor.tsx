@@ -1,28 +1,32 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { colors } from '../../../tokens/colors';
-import { ArrowRight, ExternalLink } from 'lucide-react'; 
+import { ArrowRight, ExternalLink } from 'lucide-react';
 
 export interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
-  variant?: 'internal' | 'external';
+  variant?: 'internal' | 'internalRed' | 'external' | 'externalRed';
   role?: string;
   'aria-label'?: string;
   'aria-describedby'?: string;
 }
 
-const StyledAnchor = styled('a')`
+const StyledAnchor = styled('a')<Pick<AnchorProps, 'variant'>>`
   display: inline-flex;
   align-items: center;
   gap: 0.25em;
-  color: ${colors.black};
   text-decoration: underline;
   cursor: pointer;
   transition: color 0.2s ease;
 
+  color: ${({ variant }) =>
+    variant === 'internalRed' || variant === 'externalRed'
+      ? colors['color-primary-crimson-red']
+      : colors.black};
+
   &:hover,
   &:focus {
-    color: ${colors.primary};
+    color: ${colors.black};
   }
 
   svg {
@@ -40,7 +44,7 @@ export const Anchor: React.FC<AnchorProps> = ({
   'aria-describedby': ariaDescribedBy,
   ...rest
 }) => {
-  const isExternal = variant === 'external';
+  const isExternal = variant === 'external' || variant === 'externalRed';
 
   return (
     <StyledAnchor
@@ -50,6 +54,7 @@ export const Anchor: React.FC<AnchorProps> = ({
       role={role ?? 'anchor'}
       aria-label={ariaLabel}
       aria-describedby={ariaDescribedBy}
+      variant={variant}
       {...rest}
     >
       {children}
