@@ -15,10 +15,11 @@ Inspired by leading systems like IBM Carbon, Google Material, and Twilio Paste, 
 ---
 
 ### [🚀 Live Storybook (to be linked when deployed)]()
+### [📄 Docs ](https://sulfuric-brochure-f82.notion.site/Riff-Design-System-1ffa2e13c8058068b74ece79f158b377)
 
 ---
 
-## 👑 Table of Contents
+## Table of Contents
 
 * [Principles](#principles)
 * [Tech Stack](#tech-stack)
@@ -102,10 +103,19 @@ src/
       Text/
   pages/                # PoC pages (CareersLandingPage, JobSpecPage, LoginPage)
   tokens/
+    borders.ts
+    breakpoints.ts
     colors.ts
-    spacing.ts
-    typography.ts
+    index.ts
+    opacity.ts
     radii.ts
+    shadows.ts
+    spacing.ts
+    transitions.ts
+    typography.ts
+    widths.ts
+    zindex.ts
+
 index.ts                # Design system exports
 main.tsx                # App entry for PoC pages
 App.tsx                 # App router for PoC pages
@@ -173,10 +183,7 @@ index.html              # App entrypoint
 
 Design tokens are centrally defined in:
 
-* `src/tokens/colors.ts`
-* `src/tokens/typography.ts`
-* `src/tokens/spacing.ts`
-* `src/tokens/radii.ts`
+* `src/tokens/`
 
 Tokens are used consistently across all components to ensure visual consistency between Figma and production.
 
@@ -214,8 +221,8 @@ npm run dev
 * CI is configured in `.github/workflows/ci.yml`
 * On every push to `main`:
 
-  * Library is built and tested
-  * App is built and tested
+  * Library is built
+  * App is built
   * Storybook is built
   * Storybook is deployed to GitHub Pages
 

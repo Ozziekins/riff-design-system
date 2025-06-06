@@ -1,19 +1,30 @@
 import React from 'react';
 import type { BoxProps } from './Box.types';
-import { colors, spacing, radii, shadows, sizes } from '../../../tokens';
+import { borderWidths, colors, spacing, radii, shadows, sizes } from '../../../tokens';
 import styled from '@emotion/styled';
 
 const StyledBox = styled('div')<BoxProps>`
   background-color: ${({ backgroundColor = 'transparent' }) =>
     colors[backgroundColor as keyof typeof colors] ?? backgroundColor};
+
   border-radius: ${({ borderRadius = 'none' }) =>
     radii[borderRadius as keyof typeof radii] ?? borderRadius};
+
+  border-width: ${({ borderWidth = '0' }) =>
+    borderWidths[borderWidth as keyof typeof borderWidths] ?? borderWidth};
+  border-style: solid;
+  border-color: ${({ borderColor = 'transparent' }) =>
+    colors[borderColor as keyof typeof colors] ?? borderColor};
+
   padding: ${({ padding = '0' }) =>
     spacing[padding as keyof typeof spacing] ?? padding};
+
   margin: ${({ margin = '0' }) =>
     spacing[margin as keyof typeof spacing] ?? margin};
+
   box-shadow: ${({ boxShadow }) =>
     boxShadow ? shadows[boxShadow as keyof typeof shadows] ?? boxShadow : 'none'};
+
   width: ${({ width }) => (width ? sizes[width as keyof typeof sizes] : 'auto')};
   height: ${({ height }) => (height ? sizes[height as keyof typeof sizes] : 'auto')};
 `;

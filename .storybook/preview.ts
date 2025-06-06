@@ -17,7 +17,7 @@ const preview: Preview = {
   parameters: {
     docs: {
     description: {
-      component: '[Design System Notion Page](https://www.notion.so/Riff-Design-System-1ffa2e13c8058068b74ece79f158b377)',
+      component: '[Design System Notion Page](https://sulfuric-brochure-f82.notion.site/Riff-Design-System-1ffa2e13c8058068b74ece79f158b377)',
     },
   },
     controls: {

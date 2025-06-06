@@ -41,7 +41,7 @@ export const Default: Story = {
     padding: 4,
     margin: 4,
     width: 'size16',
-    height: 'size9',
+    height: 'size11',
     children: 'Explore your favourite artists, genres, live lessons & more.',
   },
 };
