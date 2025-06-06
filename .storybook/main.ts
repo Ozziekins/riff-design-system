@@ -10,8 +10,8 @@ const config: StorybookConfig = {
   addons: [
     // "@storybook/addon-onboarding", // <- Keep disabled
     // "@chromatic-com/storybook",    // <- Keep disabled
-    "@storybook/addon-docs",         // <- Re-enable
-    "@storybook/addon-a11y",         // <- Re-enable
+    // "@storybook/addon-docs",         // <- Re-enable
+    // "@storybook/addon-a11y",         // <- Re-enable
     // "@storybook/addon-vitest"        // <- Keep disabled
   ],
 
