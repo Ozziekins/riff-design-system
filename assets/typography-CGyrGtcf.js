@@ -1,0 +1,1 @@
+const s={fonts:{base:"'Fira Sans', sans-serif"},sizes:{display:"32px",heading:"24px",subheading:"20px",body:"18px",small:"16px",caption:"14px"},weights:{regular:400,medium:500,bold:700},lineHeights:{tight:1.2,normal:1.5,relaxed:1.75},spacing:{400:"16px"}};export{s as t};
