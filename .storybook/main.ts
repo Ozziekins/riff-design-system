@@ -16,6 +16,11 @@ const config: StorybookConfig = {
     "name": "@storybook/react-vite",
     "options": {}
   },
+  viteFinal: async (config) => {
+  config.base = '/riff-design-system/';
+  return config;
+},
+
   typescript: {
     reactDocgen: false,
     check: true,
