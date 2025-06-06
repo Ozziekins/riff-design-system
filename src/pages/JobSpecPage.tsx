@@ -54,7 +54,9 @@ const JobSpecPage = () => {
 
       {/* Job Description Section */}
 <Flex direction="column" gap={4} paddingBottom={8}>
-  <Anchor href="" variant="internal">{'Back to all jobs'}</Anchor>
+  <Link to="/">
+    <Anchor href="" variant="internal">{'Back to all jobs'}</Anchor>
+  </Link>
 
   <Flex justify="space-between" align="center" gap={4} paddingBottom={4}>
   <Heading level={1}>Senior Software Engineer, DSP</Heading>

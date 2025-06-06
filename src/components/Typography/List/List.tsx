@@ -19,10 +19,10 @@ const StyledList = styled(Text)<{ as: 'ul' | 'ol' }>`
   font-size: ${typography.sizes.body};
   font-weight: ${typography.weights.regular};
   line-height: ${typography.lineHeights.normal};
-  font-family: ${typography.fonts.base};
+  // font-family: ${typography.fonts.base};
   color: ${colors.text};
-  margin-bottom: ${typography.spacing['400']}; /* 16px */
-  padding-left: ${spacing[5]}; /* 24px for list indentation */
+  margin-bottom: ${typography.spacing['400']};
+  padding-left: ${spacing[5]};
 `;
 
 export const List: React.FC<ListProps> = ({

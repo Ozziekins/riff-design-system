@@ -80,7 +80,7 @@ const StyledHeading = styled(Text)<{ level: HeadingLevel }>`
   font-size: ${({ level }) => styleMap[level].fontSize};
   font-weight: ${({ level }) => styleMap[level].fontWeight};
   line-height: ${({ level }) => styleMap[level].lineHeight};
-  font-family: ${({ level }) => styleMap[level].fontFamily};
+  // font-family: ${({ level }) => styleMap[level].fontFamily};
   color: ${({ level }) => styleMap[level].color};
   margin-bottom: ${({ level }) => styleMap[level].marginBottom};
 `;

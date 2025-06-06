@@ -13,12 +13,12 @@ export interface ParagraphProps {
 }
 
 const StyledParagraph = styled(Text)`
-  font-size: ${typography.sizes.small};
+  font-size: ${typography.sizes.body};
   font-weight: ${typography.weights.regular};
   line-height: ${typography.lineHeights.normal};
   font-family: ${typography.fonts.base};
-  color: ${colors.text};
-  margin-bottom: ${typography.spacing['400']}; /* 16px */
+  color: ${colors.black};
+  margin-bottom: ${typography.spacing['400']};
 `;
 
 export const Paragraph: React.FC<ParagraphProps> = ({

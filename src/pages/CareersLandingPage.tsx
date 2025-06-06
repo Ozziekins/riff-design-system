@@ -48,7 +48,7 @@ const CareersLandingPage = () => {
             For timeless sound and style, nothing beats a Fender. Since 1946, Fender Musical Instruments Corporation (FMIC) has been tireless in its commitment to making the highest quality instruments, amps, pro-audio, accessories and digital products – and life sounds better because of it.
           </Paragraph>
           <Flex>
-            <Button variant="primaryBlack">See Openings</Button>
+            <Button variant="primary">See Openings</Button>
           </Flex>
         </Stack>
       </Flex>
