@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Text } from '../../primitives/Text/Text';
-import { typography, colors } from '../../../tokens';
+import { typography, colors, spacing } from '../../../tokens';
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -17,61 +17,61 @@ export interface HeadingProps {
 const styleMap: Record<
   HeadingLevel,
   {
-    fontSize: string;
-    fontWeight: number;
-    lineHeight: number;
-    fontFamily: string;
-    color: string;
-    marginBottom: string;
+    fontSize: keyof typeof typography.sizes;
+    fontWeight: keyof typeof typography.weights;
+    lineHeight: keyof typeof typography.lineHeights;
+    fontFamily: keyof typeof typography.fonts;
+    color: keyof typeof colors;
+    marginBottom: keyof typeof spacing;
   }
 > = {
   1: {
-    fontSize: typography.sizes.display,
-    fontWeight: typography.weights.bold,
-    lineHeight: typography.lineHeights.tight,
-    fontFamily: typography.fonts.base,
-    color: colors.text,
-    marginBottom: typography.spacing['600'],
+    fontSize: 'display',
+    fontWeight: 'bold',
+    lineHeight: 'tight',
+    fontFamily: 'base',
+    color: 'color-primary-crimson-red',
+    marginBottom: 5,
   },
   2: {
-    fontSize: typography.sizes.heading,
-    fontWeight: typography.weights.bold,
-    lineHeight: typography.lineHeights.normal,
-    fontFamily: typography.fonts.base,
-    color: colors.text,
-    marginBottom: typography.spacing['500'],
+    fontSize: 'heading',
+    fontWeight: 'bold',
+    lineHeight: 'normal',
+    fontFamily: 'base',
+    color: 'color-primary-crimson-red',
+    marginBottom: 4,
   },
   3: {
-    fontSize: typography.sizes.subheading,
-    fontWeight: typography.weights.bold,
-    lineHeight: typography.lineHeights.normal,
-    fontFamily: typography.fonts.base,
-    color: colors.text,
-    marginBottom: typography.spacing['400'],
+    fontSize: 'subheading',
+    fontWeight: 'bold',
+    lineHeight: 'normal',
+    fontFamily: 'base',
+    color: 'color-primary-crimson-red',
+    marginBottom: 4,
   },
   4: {
-    fontSize: typography.sizes.body,
-    fontWeight: typography.weights.bold,
-    lineHeight: typography.lineHeights.normal,
-    fontFamily: typography.fonts.base,
-    color: colors.text,
-    marginBottom: typography.spacing['300'],
+    fontSize: 'body',
+    fontWeight: 'bold',
+    lineHeight: 'normal',
+    fontFamily: 'base',
+    color: 'text',
+    marginBottom: 3,
   },
   5: {
-    fontSize: typography.sizes.small,
-    fontWeight: typography.weights.bold,
-    lineHeight: typography.lineHeights.relaxed,
-    fontFamily: typography.fonts.base,
-    color: colors.text,
-    marginBottom: typography.spacing['200'],
+    fontSize: 'small',
+    fontWeight: 'bold',
+    lineHeight: 'relaxed',
+    fontFamily: 'base',
+    color: 'text',
+    marginBottom: 2,
   },
   6: {
-    fontSize: typography.sizes.caption,
-    fontWeight: typography.weights.bold,
-    lineHeight: typography.lineHeights.relaxed,
-    fontFamily: typography.fonts.base,
-    color: colors.text,
-    marginBottom: typography.spacing['100'],
+    fontSize: 'caption',
+    fontWeight: 'bold',
+    lineHeight: 'relaxed',
+    fontFamily: 'base',
+    color: 'text',
+    marginBottom: 1,
   },
 };
 
@@ -99,6 +99,11 @@ export const Heading: React.FC<HeadingProps> = ({
     <StyledHeading
       as={tag}
       level={level}
+      fontWeight={styleMap[level].fontWeight}
+      lineHeight={styleMap[level].lineHeight}
+      fontSize={styleMap[level].fontSize}
+      color={styleMap[level].color}
+      marginBottom={styleMap[level].marginBottom}
       role={role ?? 'heading'}
       aria-label={ariaLabel}
       aria-describedby={ariaDescribedBy}

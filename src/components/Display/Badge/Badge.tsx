@@ -41,7 +41,7 @@ export const Badge: React.FC<BadgeProps> = ({
       aria-describedby={ariaDescribedBy}
       aria-hidden={ariaHidden}
     >
-      <Text as="span" fontSize="small" fontWeight="regular" style={{ color: colors.badge[tone].text }}>
+      <Text as="span" fontSize="caption" fontWeight="regular" style={{ color: colors.badge[tone].text }}>
         {children}
       </Text>
     </StyledBadge>

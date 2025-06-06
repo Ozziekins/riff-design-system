@@ -15,14 +15,14 @@ const StyledAnchor = styled('a')`
   display: inline-flex;
   align-items: center;
   gap: 0.25em;
-  color: ${colors.primary};
+  color: ${colors.black};
   text-decoration: underline;
   cursor: pointer;
   transition: color 0.2s ease;
 
   &:hover,
   &:focus {
-    color: ${colors.secondary};
+    color: ${colors.primary};
   }
 
   svg {

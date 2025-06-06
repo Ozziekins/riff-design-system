@@ -9,6 +9,7 @@ import { zIndex } from '../src/tokens/zIndex';
 import { transitions } from '../src/tokens/transitions';
 import { breakpoints } from '../src/tokens/breakpoints';
 import { opacity } from '../src/tokens/opacity';
+import { sizes } from '../src/tokens/widths';
 
 // Transform token keys into array for Storybook selects
 export const colorOptions = Object.keys(colors);
@@ -23,3 +24,4 @@ export const zIndexOptions = Object.keys(zIndex);
 export const transitionOptions = Object.keys(transitions);
 export const breakpointOptions = Object.keys(breakpoints);
 export const opacityOptions = Object.keys(opacity);
+export const sizeOptions = Object.keys(sizes);

@@ -17,6 +17,9 @@ const meta: Meta<typeof Accordion> = {
     ariaDescribedBy: undefined,
   },
   argTypes: {
+    items: {
+      control: 'object',
+    },
     gap: {
       control: { type: 'select' },
       options: [0, 1, 2, 3, 4, 5, 6],
@@ -46,17 +49,19 @@ export default meta;
 type Story = StoryObj<typeof Accordion>;
 
 export const Default: Story = {
-  args: {},
+  args: { ...meta.args },
 };
 
 export const NoDefaultOpen: Story = {
   args: {
+    ...meta.args,
     defaultOpenId: '',
   },
 };
 
 export const CustomGap: Story = {
   args: {
+    ...meta.args,
     gap: 4,
   },
 };

@@ -30,7 +30,7 @@ export const Text: React.FC<TextProps> = ({
       lineHeight={lineHeight}
       color={color}
       marginBottom={marginBottom}
-      {...rest}
+      {...rest} 
     >
       {children}
     </StyledText>

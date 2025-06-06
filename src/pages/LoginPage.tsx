@@ -9,33 +9,50 @@ import { Stack } from '../components/layout/Stack/Stack';
 
 const LoginPage = () => {
   return (
-    <Box padding={5}>
+    <Flex direction="column">
       {/* Header */}
-      <Flex justify="space-between" align="center">
-        <Button variant="secondary">Your Logo</Button>
-        <Flex gap={4}>
-          <Button variant="tertiary">Login</Button>
-          <Button variant="tertiary">Values</Button>
-          <Button variant="tertiary">Open roles</Button>
+      <Box padding={2} height='sizeFull'>
+        <Flex justify="space-between" align="center" gap={3}>
+          <img src="/fender-logo.jpg" alt="Fender Play Logo" width="200" height="auto" />
+          <Flex gap={4}>
+            <Button variant="tertiaryBlack">Login</Button>
+            <Button variant="tertiaryBlack">Values</Button>
+            <Button variant="tertiaryBlack">Open roles</Button>
+          </Flex>
         </Flex>
-      </Flex>
+      </Box>
 
-      {/* Login section */}
-      <Flex gap={6}>
-        <Box backgroundColor="surface" style={{ width: '300px', height: '300px' }} />
-        <Stack gap={4} style={{ flex: 1 }}>
-          <Heading level={1}>Login to see status of your application/s</Heading>
-          <TextInput label="Username" placeholder="Username" />
-          <TextInput label="Password" placeholder="Password" type="password" />
-          <Button>See Applications</Button>
-        </Stack>
-      </Flex>
+      {/* Main content — this grows to fill remaining space */}
+      <Box padding={2}>
+        <Flex
+          gap={6}
+          align="center"
+          justify="center"
+          paddingTop={8}
+          paddingBottom={8}
+          grow={1}
+        >
+          <Box
+            backgroundColor="color-neutral-1"
+            width="size21"
+            height="size19"
+          />
+          <Stack gap={5}>
+            <Heading level={1}>Login to see status of your applications</Heading>
+            <TextInput label="Username" placeholder="Username" />
+            <TextInput label="Password" placeholder="Password" type="password" />
+            <Box>
+              <Button variant='primaryBlack'>See Applications</Button>
+            </Box>
+          </Stack>
+        </Flex>
+      </Box>
 
       {/* Footer */}
-      <Box backgroundColor="border" padding={4} style={{ textAlign: 'center' }}>
+      <Box backgroundColor="border" padding={6} margin={4}>
         <Paragraph>[Footer]</Paragraph>
       </Box>
-    </Box>
+    </Flex>
   );
 };
 

@@ -11,7 +11,9 @@ export type ButtonVariant =
   | 'secondary'
   | 'secondaryBlack'
   | 'tertiary'
-  | 'tertiaryBlack';
+  | 'tertiaryBlack'
+  | 'link'
+  | 'linkBlack';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -183,6 +185,61 @@ const StyledButton = styled('button')<{
       cursor: not-allowed;
     }
   `}
+
+    ${({ variant }) =>
+    variant === 'link' &&
+    `
+    background-color: transparent;
+    color: ${colors.button.link?.text ?? colors['color-primary-crimson-red']};
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    font-weight: ${typography.weights.medium};
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      color: ${colors.button.link?.hover ?? colors['color-primary-crimson-red']};
+      text-decoration: underline;
+    }
+
+    &:active:not(:disabled) {
+      color: ${colors.button.link?.active ?? colors['color-primary-crimson-red']};
+    }
+
+    &:disabled {
+      color: ${colors.button.link?.disabled ?? colors['color-neutral-3']};
+      text-decoration: none;
+      cursor: not-allowed;
+    }
+  `}
+
+    ${({ variant }) =>
+    variant === 'linkBlack' &&
+    `
+    background-color: transparent;
+    color: ${colors.button.linkBlack?.text ?? colors['color-neutral-black']};
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    font-weight: ${typography.weights.medium};
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      color: ${colors.button.linkBlack?.hover ?? colors['color-neutral-black']};
+      text-decoration: underline;
+    }
+
+    &:active:not(:disabled) {
+      color: ${colors.button.linkBlack?.active ?? colors['color-neutral-black']};
+    }
+
+    &:disabled {
+      color: ${colors.button.linkBlack?.disabled ?? colors['color-neutral-3']};
+      text-decoration: none;
+      cursor: not-allowed;
+    }
+  `}
+
 `;
 
 export const Button: React.FC<ButtonProps> = ({

@@ -58,6 +58,9 @@ const AccordionPanel = styled(Box)`
   padding: ${spacing[3]} 0;
   color: ${colors.text};
   font-size: ${typography.sizes.body};
+  line-height: ${typography.lineHeights.normal};
+  /* Optional: add subtle animation */
+  transition: all 0.2s ease-in-out;
 `;
 
 export const Accordion: React.FC<AccordionProps> = ({
@@ -83,7 +86,7 @@ export const Accordion: React.FC<AccordionProps> = ({
       {items.map((item) => {
         const isOpen = openId === item.id;
         return (
-          <Box key={item.id}>
+          <React.Fragment key={item.id}>
             <AccordionHeader
               type="button"
               expanded={isOpen}
@@ -109,7 +112,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                 {item.content}
               </AccordionPanel>
             )}
-          </Box>
+          </React.Fragment>
         );
       })}
     </AccordionContainer>

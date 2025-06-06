@@ -2,6 +2,7 @@ import React from 'react';
 import { Box } from '../../primitives/Box/Box';
 import { Text } from '../../primitives/Text/Text';
 import { spacing } from '../../../tokens/spacing';
+import styled from '@emotion/styled';
 
 export interface CheckboxOption {
   value: string;
@@ -18,6 +19,12 @@ export interface CheckboxGroupProps {
   ariaLabel?: string;
   ariaDescribedBy?: string;
 }
+
+const StyledCheckboxGroup = styled(Box)<{ gap: keyof typeof spacing }>`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ gap }) => spacing[gap]};
+`;
 
 export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   name,
@@ -37,15 +44,11 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   };
 
   return (
-    <Box
+    <StyledCheckboxGroup
       role="group"
+      gap={gap}
       aria-label={ariaLabel}
       aria-describedby={ariaDescribedBy}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: spacing[gap],
-      }}
     >
       {options.map((option) => (
         <label
@@ -69,6 +72,6 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
           <Text as="span">{option.label}</Text>
         </label>
       ))}
-    </Box>
+    </StyledCheckboxGroup>
   );
 };

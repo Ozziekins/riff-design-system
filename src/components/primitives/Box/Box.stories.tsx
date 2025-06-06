@@ -33,12 +33,15 @@ type Story = StoryObj<typeof Box>;
 
 export const Default: Story = {
   args: {
+    as: 'div',
     backgroundColor: 'color-extended-crimson-red-4',
     borderWidth: 'thin',
     borderColor: 'border',
     borderRadius: 'md',
     padding: 4,
     margin: 4,
+    width: 'size16',
+    height: 'size9',
     children: 'Explore your favourite artists, genres, live lessons & more.',
   },
 };

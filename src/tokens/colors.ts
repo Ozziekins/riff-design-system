@@ -64,7 +64,7 @@ export const colors = {
     success: { background: '#28a745', text: '#FFFFFF' },
     error: { background: '#dc3545', text: '#FFFFFF' },
     warning: { background: '#ffc107', text: '#111111' },
-    info: { background: '#17a2b8', text: '#FFFFFF' },
+    info: { background: '#c82b9f', text: '#FFFFFF' },
   },
 
   button: {
@@ -114,6 +114,18 @@ export const colors = {
       activeBg: '#CCCCCC',
       disabledText: '#B0B0B0',
     },
+    link: {
+      text: '#D7263D',
+      hover: '#D7263D',
+      active: '#D7263D',
+      disabled: '#8A8A8A',
+    },
+    linkBlack: {
+      text:  '#000000',
+      hover:  '#000000',
+      active:  '#000000',
+      disabled: '#8A8A8A',
+    }
   } as const,
 
   // Utility colors

@@ -1,8 +1,12 @@
 import type { HTMLAttributes } from 'react';
-import { colors, spacing, radii, shadows, borderWidths } from '../../../tokens';
+import { colors, spacing, radii, shadows, borderWidths, sizes } from '../../../tokens';
 
-export interface BoxProps extends HTMLAttributes<HTMLElement> {
+type BoxDOMProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'style'>;
+
+export interface BoxProps extends BoxDOMProps {
   as?: React.ElementType;
+  width?: keyof typeof sizes;
+  height?: keyof typeof sizes;
   backgroundColor?: keyof typeof colors;
   borderRadius?: keyof typeof radii;
   padding?: keyof typeof spacing;

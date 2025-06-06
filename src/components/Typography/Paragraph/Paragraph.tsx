@@ -13,7 +13,7 @@ export interface ParagraphProps {
 }
 
 const StyledParagraph = styled(Text)`
-  font-size: ${typography.sizes.body};
+  font-size: ${typography.sizes.small};
   font-weight: ${typography.weights.regular};
   line-height: ${typography.lineHeights.normal};
   font-family: ${typography.fonts.base};

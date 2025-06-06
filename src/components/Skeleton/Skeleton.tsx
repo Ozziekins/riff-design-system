@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Box } from '../primitives/Box/Box';
 import { colors } from '../../tokens/colors';
+import { radii } from '../../tokens/radii';
 
 export interface SkeletonProps {
   width?: string;
@@ -12,7 +13,15 @@ export interface SkeletonProps {
   'aria-describedby'?: string;
 }
 
-const StyledSkeleton = styled(Box)`
+const StyledSkeleton = styled(Box)<{
+  $width: string;
+  $height: string;
+  $borderRadius: keyof typeof radii;
+}>`
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
+  border-radius: ${({ $borderRadius }) => radii[$borderRadius]};
+  background-color: ${colors.skeletonBase ?? '#e0e0e0'};
   animation: skeleton-loading 1.2s infinite ease-in-out;
 
   @keyframes skeleton-loading {
@@ -38,12 +47,12 @@ export const Skeleton: React.FC<SkeletonProps> = ({
 }) => {
   let computedWidth = width;
   let computedHeight = height;
-  let computedRadiusKey: 'none' | 'sm' | 'md' | 'lg' | 'full' = 'sm';
+  let computedRadiusKey: keyof typeof radii = 'sm';
 
   if (variant === 'circle') {
     computedWidth = width === '100%' ? '40px' : width;
     computedHeight = computedWidth;
-    computedRadiusKey = 'full'; 
+    computedRadiusKey = 'full';
   } else if (variant === 'text') {
     computedHeight = '1em';
     computedRadiusKey = 'sm';
@@ -52,11 +61,9 @@ export const Skeleton: React.FC<SkeletonProps> = ({
   return (
     <StyledSkeleton
       backgroundColor="skeletonBase"
-      borderRadius={computedRadiusKey}
-      style={{
-        width: computedWidth,
-        height: computedHeight,
-      }}
+      $width={computedWidth}
+      $height={computedHeight}
+      $borderRadius={computedRadiusKey}
       role={role ?? 'presentation'}
       aria-hidden="true"
       aria-label={ariaLabel}

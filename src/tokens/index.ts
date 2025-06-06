@@ -8,3 +8,4 @@ export * from './zIndex';
 export * from './breakpoints';
 export * from './opacity';
 export * from './borders';
+export * from './widths';
