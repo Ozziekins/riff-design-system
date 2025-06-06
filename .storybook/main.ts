@@ -20,7 +20,7 @@ const config: StorybookConfig = {
   },
   staticDirs: [],
   viteFinal: async (config, { configType }) => {
-    config.base = '/riff-design-system/';
+    config.base = '/riff-design-system/storybook/';
     return config;
   },
   typescript: {
