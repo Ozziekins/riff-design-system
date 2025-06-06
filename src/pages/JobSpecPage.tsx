@@ -11,6 +11,7 @@ import { Flex } from '../components/layout/Flex/Flex';
 import { List } from '../components/Typography/List/List';
 import { Badge } from '../components/Display/Badge/Badge';
 import { Anchor } from '../components/Navigation/Anchor/Anchor';
+import { Link } from 'react-router-dom';
 
 const JobSpecPage = () => {
   const [selectedExperience, setSelectedExperience] = useState<string[]>([]);
@@ -20,11 +21,17 @@ const JobSpecPage = () => {
     <Box padding={5}>
       {/* Header */}
       <Flex justify="space-between" align="center" gap={4}>
-        <img src="/fender-logo.jpg" alt="Fender Play Logo" width="200" height="auto" />
+        <Link to="/">
+  <img src="/fender-logo.jpg" alt="Fender Play Logo" width="200" height="auto" />
+</Link>
         <Flex gap={4}>
-          <Button variant="tertiaryBlack">Login</Button>
-          <Button variant="tertiaryBlack">Values</Button>
-          <Button variant="tertiaryBlack">Open roles</Button>
+          <Link to="/login">
+    <Button variant="tertiaryBlack">Login</Button>
+  </Link>
+  <Button variant="tertiaryBlack">Values</Button>
+  <Link to="/job-spec">
+    <Button variant="tertiaryBlack">Open roles</Button>
+  </Link>
         </Flex>
       </Flex>
 

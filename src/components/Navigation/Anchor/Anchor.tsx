@@ -47,7 +47,7 @@ export const Anchor: React.FC<AnchorProps> = ({
       href={href}
       target={isExternal ? '_blank' : undefined}
       rel={isExternal ? 'noopener noreferrer' : undefined}
-      role={role ?? 'link'}
+      role={role ?? 'anchor'}
       aria-label={ariaLabel}
       aria-describedby={ariaDescribedBy}
       {...rest}

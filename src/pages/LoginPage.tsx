@@ -6,6 +6,7 @@ import { Button } from '../components/Form/Button/Button';
 import { TextInput } from '../components/Form/TextInput/TextInput';
 import { Flex } from '../components/layout/Flex/Flex';
 import { Stack } from '../components/layout/Stack/Stack';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   return (
@@ -13,11 +14,17 @@ const LoginPage = () => {
       {/* Header */}
       <Box padding={2} height='sizeFull'>
         <Flex justify="space-between" align="center" gap={3}>
-          <img src="/fender-logo.jpg" alt="Fender Play Logo" width="200" height="auto" />
+          <Link to="/">
+  <img src="/fender-logo.jpg" alt="Fender Play Logo" width="200" height="auto" />
+</Link>
           <Flex gap={4}>
-            <Button variant="tertiaryBlack">Login</Button>
-            <Button variant="tertiaryBlack">Values</Button>
-            <Button variant="tertiaryBlack">Open roles</Button>
+            <Link to="/login">
+    <Button variant="tertiaryBlack">Login</Button>
+  </Link>
+  <Button variant="tertiaryBlack">Values</Button>
+  <Link to="/job-spec">
+    <Button variant="tertiaryBlack">Open roles</Button>
+  </Link>
           </Flex>
         </Flex>
       </Box>

@@ -245,15 +245,6 @@ Contributions are welcome! Please fork the repo and submit a PR.
 Before submitting:
 
 ```bash
-# Lint
-npm run lint
-
-# Format
-npm run format
-
-# Test (if tests added)
-npm run test
-
 # Storybook check
 npm run storybook
 ```
@@ -268,6 +259,6 @@ MIT License © Fender Play Design System Team
 
 ## Credits
 
-Built with ❤️ by the Fender Play Design System team.
+Built with ❤️ by Ozzie and Divya for the Fender Play Design System team.
 
 **Let’s riff!** 🎸✨
