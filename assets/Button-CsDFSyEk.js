@@ -1,1 +1,0 @@
-import{j as b}from"./jsx-runtime-D_zvdyIk.js";const m=({primary:o=!1,size:t="medium",backgroundColor:s,label:n,...r})=>{const e=o?"storybook-button--primary":"storybook-button--secondary";return b.jsx("button",{type:"button",className:["storybook-button",`storybook-button--${t}`,e].join(" "),style:{backgroundColor:s},...r,children:n})};export{m as B};
