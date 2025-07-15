@@ -268,4 +268,4 @@ MIT License © Fender Play Design System Team
 
 Built with ❤️ by Ozzie and Divya for the Fender Play Design System team.
 
-**Let’s riff!** 🎸✨
+**Let’s riff!!** 🎸✨
