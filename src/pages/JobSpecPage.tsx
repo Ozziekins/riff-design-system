@@ -22,7 +22,7 @@ const JobSpecPage = () => {
       {/* Header */}
       <Flex justify="space-between" align="center" gap={4}>
         <Link to="/">
-  <img src="/fender-logo.jpg" alt="Fender Play Logo" width="200" height="auto" />
+  <img src="./fender-logo.jpg" alt="Fender Play Logo" width="200" height="auto" />
 </Link>
         <Flex gap={4}>
           <Link to="/login">

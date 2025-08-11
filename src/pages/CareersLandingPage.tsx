@@ -19,7 +19,7 @@ const CareersLandingPage = () => {
       {/* Header */}
       <Flex justify="space-between" align="center" gap={4} margin={3}>
         <Link to="/">
-  <img src="/fender-logo.jpg" alt="Fender Play Logo" width="200" height="auto" />
+  <img src="./fender-logo.jpg" alt="Fender Play Logo" width="200" height="auto" />
 </Link>
         <Flex gap={4}>
           <Link to="/login">
@@ -37,7 +37,7 @@ const CareersLandingPage = () => {
       {/* Hero Section */}
       <Flex align="center" justify="space-between" gap={6} margin={4}>
         <img
-          src="/poc-image.png"
+          src="./poc-image.png"
           alt="Landing Page Image"
           width="size21"
           height="size19"

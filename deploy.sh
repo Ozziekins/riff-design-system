@@ -18,6 +18,9 @@ mv dist/index.html dist/app/
 # Copy Storybook files to storybook subdirectory
 cp -r storybook-static/* dist/storybook/
 
+# Copy 404.html for client-side routing
+cp public/404.html dist/app/
+
 # Create landing page
 cat > dist/index.html << 'EOF'
 <!DOCTYPE html>
@@ -97,7 +100,7 @@ cat > dist/index.html << 'EOF'
         <p>Welcome to the Fender Design System. Choose what you'd like to explore:</p>
         <div class="links">
             <a href="./app/" class="link">Main Application</a>
-            <a href="./storybook/index.html" class="link storybook">Storybook</a>
+            <a href="./storybook/" class="link storybook">Storybook</a>
         </div>
     </div>
 </body>
