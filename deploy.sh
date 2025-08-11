@@ -1,0 +1,110 @@
+#!/bin/bash
+
+# Build both the main app and Storybook
+echo "Building main application..."
+npm run build
+
+echo "Building Storybook..."
+npm run build-storybook
+
+# Create the directory structure
+echo "Organizing files..."
+mkdir -p dist/app dist/storybook
+
+# Move main app files to app subdirectory
+mv dist/assets dist/app/
+mv dist/index.html dist/app/
+
+# Copy Storybook files to storybook subdirectory
+cp -r storybook-static/* dist/storybook/
+
+# Create landing page
+cat > dist/index.html << 'EOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fender Play UI - Design System</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .link {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+        .link:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .link.storybook {
+            background: #ff6b6b;
+        }
+        .link.storybook:hover {
+            background: #ff5252;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎸 Fender Play UI</h1>
+        <p>Welcome to the Fender Design System. Choose what you'd like to explore:</p>
+        <div class="links">
+            <a href="./app/" class="link">Main Application</a>
+            <a href="./storybook/" class="link storybook">Storybook</a>
+        </div>
+    </div>
+</body>
+</html>
+EOF
+
+# Fix asset paths in the app's index.html
+sed -i 's|/riff-design-system/assets/|./assets/|g' dist/app/index.html
+
+# Deploy to GitHub Pages
+echo "Deploying to GitHub Pages..."
+npx gh-pages -d dist
+
+echo "Deployment complete!"
+echo "Your site should be available at: https://ozziekins.github.io/riff-design-system/" 

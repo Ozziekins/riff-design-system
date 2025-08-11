@@ -9,10 +9,10 @@ const config: StorybookConfig = {
   ],
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-a11y',
+    // '@storybook/addon-a11y',
     '@storybook/addon-docs',
-    '@storybook/addon-designs',
-    '@storybook/blocks'
+    // '@storybook/addon-designs',
+    // '@storybook/blocks'
   ],
   framework: {
     name: '@storybook/react-vite',

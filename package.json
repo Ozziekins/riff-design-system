@@ -32,11 +32,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "deploy": "gh-pages -d dist",
     "build-storybook": "storybook build",
-    "deploy-storybook": "gh-pages -d storybook-static",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006"
+    "storybook": "storybook dev -p 6006",
+    "deploy": "./deploy.sh",
+    "deploy-storybook": "npm run build-storybook && gh-pages -d storybook-static",
+    "deploy-all": "npm run build && npm run build-storybook && cp -r storybook-static/* dist/ && gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": [
