@@ -31,30 +31,32 @@ cat > dist/index.html << 'EOF'
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #232DCE 0%, #C82B9F 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .container {
-            background: white;
-            border-radius: 12px;
+            background: #FFFFFF;
+            border-radius: 16px;
             padding: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.12);
             text-align: center;
             max-width: 500px;
             width: 100%;
         }
         h1 {
-            color: #333;
+            color: #212529;
             margin-bottom: 10px;
             font-size: 2.5em;
+            font-weight: 600;
         }
         p {
-            color: #666;
+            color: #545454;
             margin-bottom: 30px;
             font-size: 1.1em;
+            line-height: 1.5;
         }
         .links {
             display: flex;
@@ -65,24 +67,27 @@ cat > dist/index.html << 'EOF'
         .link {
             display: inline-block;
             padding: 15px 30px;
-            background: #667eea;
-            color: white;
+            background: #D7263D;
+            color: #FFFFFF;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
             transition: all 0.3s ease;
             min-width: 150px;
+            border: none;
+            cursor: pointer;
         }
         .link:hover {
-            background: #5a6fd8;
+            background: #E96278;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.12);
         }
         .link.storybook {
-            background: #ff6b6b;
+            background: #84C3A8;
+            color: #212529;
         }
         .link.storybook:hover {
-            background: #ff5252;
+            background: #A9D4C1;
         }
     </style>
 </head>
@@ -92,7 +97,7 @@ cat > dist/index.html << 'EOF'
         <p>Welcome to the Fender Design System. Choose what you'd like to explore:</p>
         <div class="links">
             <a href="./app/" class="link">Main Application</a>
-            <a href="./storybook/" class="link storybook">Storybook</a>
+            <a href="./storybook/index.html" class="link storybook">Storybook</a>
         </div>
     </div>
 </body>
